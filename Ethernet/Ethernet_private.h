@@ -1,18 +1,12 @@
 /*
- * Ethernet.h
+ * Ethernet_private.h
  *
- *  Created on: Sep 2, 2021
- *      Author: ahmwae8n
+ *  Created on: Oct 20, 2021
+ *      Author: medoa
  */
 
-#ifndef ETHERNET_ETHERNET_H_
-#define ETHERNET_ETHERNET_H_
-
-#include <stdio.h>
-//#include "mb/sw/control.h"
-#include "Datatypes.h"
-
-enum OperatingMode {Reset, Operation, Config} ;
+#ifndef ETHERNET_PRIVATE_H_
+#define ETHERNET_PRIVATE_H_
 
 /***************************************
 ****	AVB_DMAC MODE Register		****
@@ -35,8 +29,6 @@ enum OperatingMode {Reset, Operation, Config} ;
 #define OPS1	1
 #define OPS2	2
 #define OPS3	3
-
-
 
 
 /***********************************
@@ -97,34 +89,4 @@ enum OperatingMode {Reset, Operation, Config} ;
 #define TSM1	1
 #define TSM0	0
 
-
-/***************************************
-****	Initialize Descriptors		****
-***************************************/
-
-
-struct DESCR
-{
-	u32 DT  : 4,
-		DIE	: 4,
-		MSR	: 1,
-		TSR : 1,
-		TAG :10,
-		DS	:12;
-	u32 *DPTR;
-}DESCR_Data, DESCR_Linkfix1, DESCR_Linkfix2;
-
-#define Linkfix		9
-#define FSingle		7
-
-
-
-/***************************
-****	Functions		****
-***************************/
-
-char* Set_MAC_Address(char* c);
-void SetOperatingMode(enum OperatingMode x);
-bool ChkOperatingMode(enum OperatingMode x);
-
-#endif /* ETHERNET_ETHERNET_H_ */
+#endif /* ETHERNET_ETHERNET_PRIVATE_H_ */
